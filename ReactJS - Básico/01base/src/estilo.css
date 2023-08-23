@@ -1,0 +1,10 @@
+body{
+    background-color: aquamarine;
+}
+
+.minhaClasse{
+    width: 500px;
+    background-color: gray;
+    margin: 0 auto;
+
+}
