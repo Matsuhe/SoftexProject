@@ -1,0 +1,52 @@
+Instalar o dotnet :
+dotnet tool install --global dotnet-ef
+
+https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-7.0&tabs=visual-studio-code
+
+dotnet new webapi -o Api
+cd Api
+dotnet add package Microsoft.EntityFrameworkCore.InMemory
+code -r ../Api
+
+dotnet dev-certs https --trust
+
+dotnet run --launch-profile https
+
+finalize o processo
+
+troque os arquivos para o modelo com startup
+
+
+dotnet add package Microsoft.EntityFrameworkCore 
+dotnet add package Microsoft.EntityFrameworkCore.Design 
+dotnet add package Pomelo.EntityFrameworkCore.MySql 
+
+appsettings.json:
+"ConnectionStrings": {
+    "conexaoMySQL": "Server=localhost;Port=3306;Database=api_pessoa;Uid=admin;Pwd=root123!;charset=utf8;"
+    },
+	
+// Importações
+using api.Data;
+using Microsoft.EntityFrameworkCore;
+
+// Início conexão com o banco de dados
+string? stringDeConexao = Configuration.GetConnectionString("conexaoMySQL");
+            if (stringDeConexao != null)
+            {
+                var serverVersion = ServerVersion.AutoDetect(stringDeConexao);
+                services.AddDbContext<DataContext>(opt => opt.UseMySql(stringDeConexao, serverVersion));
+            }
+            else
+            {
+                throw new ArgumentException("A string de conexão é inválida ou nula!");
+            }
+			
+dotnet ef migrations add PrimeiraMigration
+dotnet ef database update
+
+Importações realizadas:
+using System.Threading.Tasks;
+using Api.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
