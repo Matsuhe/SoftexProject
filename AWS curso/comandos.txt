@@ -1,0 +1,45 @@
+sudo apt-get install apache2 php7.4 libapache2-mod-php7.4
+#estando no ubuntu home
+cd ..
+cd ..
+cd var 
+cd www
+cd html
+
+
+ssh -i "D:\Meus projetos\SoftexProject\AWS curso\barsystembarsystem.pem" ubuntu@ec2-35-153-99-210.compute-1.amazonaws.com
+
+Host ec2-35-153-99-210.compute-1.amazonaws.com
+  HostName ec2-35-153-99-210.compute-1.amazonaws.com
+  IdentityFile "D:/Meus projetos/SoftexProject/AWS curso/barsystembarsystem.pem"
+  User ubuntu
+  
+  
+  ssh root@35.153.99.210
+  
+  ssh-keygen -R 35.153.99.210
+  
+ icacls .\barsystem.pem /inheritance:r
+ icacls .\barsystem.pem /grant:r "%username%":"(R)"
+ 
+ Obs: tentei mil coisas e nao sei qual deles funcionou. Mas enfim, a resolução
+ tem haver com algo de permissoes de acesso do arquivo que deve ser resolucionado.
+ 
+ 
+ https://github.com/yeshwanthlm/YouTube/blob/main/mysql-on-aws-ec2.md
+ sudo apt install mysql-server
+ 
+ sudo systemctl status mysql
+ sudo mysql
+ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'place-your-password-here';
+ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '********';
+ FLUSH PRIVILEGES;
+ 
+ cd ..
+cd ..
+cd var 
+cd www
+
+sudo chmod -R 777 html
+
+dps que setta o banco de dados. necessita criar permisao de rede.
