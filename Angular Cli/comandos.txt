@@ -1,0 +1,26 @@
+ng — version
+
+Unistall
+npm uninstall -g @angular/cli  
+npm cache clean --force  
+    
+npm cache verify  
+
+Install
+npx ng new myapp --skip-install
+cd myapp
+Open the package.json and change jasmine-core to `~3.8.0`
+npm i
+
+npm install -g @angular/cli
+npm install -g @angular/cli@8
+
+ng new my-angular-app --version 8
+npm install --legacy-peer-deps
+
+
+
+ng new cursoAngular
+----
+ng g c data-binding
+ng g c data-binding2
