@@ -1,0 +1,69 @@
+#versão
+mongod --version
+#logar por cmd
+mongo
+#cls = clear
+
+
+
+-- gerenciar usuarios
+#ver os usuarios ja existentes
+db.getUsers()
+#criando usuarios
+db.createUser({user:"nataniel",
+			   pwd:"123",
+			   roles:[{role:"readWrite",
+					  db:"cursoMongo"}]
+						
+			})
+#autentificação
+db.auth("nataniel","123") -- se 1 ok.
+
+db.createUser({
+  user: "nataniel",
+  pwd: "123",
+  roles: [
+    {
+      role: "readWrite",
+      db: "cursoMongo"
+    }
+  ],
+  customData: { db: "cursoMongo" } 
+})
+
+-- importando dados
+#mongoimport -d databse -c collection --type tipo --file nomedoarquivo.tipo --headerlinef pega os titulos
+mongoimport -d dbaula5 -c ubs --type csv --file ubs.csv --headerline
+
+cd D:\Meus projetos\SoftexProject\MongoDB\
+mongoimport -d cursoMongo -c starbucks --type csv --file "starbucks.csv" --headerline
+
+D:\Meus projetos\SoftexProject\MongoDB
+
+mongoimport --db cursoMongo --collection starbucks --type csv --file "D:\Meus projetos\SoftexProject\MongoDB\Starbucks.csv" --headerline
+
+mongoimport "D:\Meus projetos\SoftexProject\MongoDB\students.json" -d college -c students --jsonArray -- para tipos de arquivo json
+
+db.starbucks.find().pretty(0)
+db.starbucks.find().limit(2).pretty(0)
+db.starbucks.find({"location":"Apopka, FL"}).limit(2).pretty(0)
+db.starbucks.find({"location":""}).limit(2).pretty(0)
+db.starbucks.find({"location":"Apopka, FL"}).pretty(0).count()
+db.starbucks.find({"location":"Wichita Falls, TX"}).pretty(0).count()
+db.starbucks.find({"Rating":5}).pretty(0).count()
+db.starbucks.find({"Date":"Reviewed Aug. 26, 2021"}).pretty(0)
+
+#criar index deixam as pesquisas hierarquicas mais rapidas
+
+{$lt:20} -> menor que 20 
+{$gt:20} -> maiores que 20 
+{$in:['x','y','z']} -> procura campos que sejam x,y,z
+{$set:{matriculados:5} - atualiza}
+upsert: true/false -> atualiza um documento , caso ele n exista, insere
+
+
+
+
+
+
+
