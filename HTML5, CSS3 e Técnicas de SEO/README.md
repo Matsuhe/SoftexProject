@@ -1,3 +1,8 @@
+![Static Badge](https://img.shields.io/badge/license-MIT-green)
+![Static Badge](https://img.shields.io/badge/w3c-validated-green)
+![Static Badge](https://img.shields.io/badge/website-up-green)
+
+
 # Html5 e CSS3
 Desenvolvendo sites de forma prática e objetiva utilizando HTML5, CSS3 e SEO. Feito do zero até a hospedagem de um site moderno e responsivo.
 ## Links indicados
