@@ -11,9 +11,31 @@
 
 html,body{
 	height: 100%;
+    background-color: red;
 }
 
 .clear{
 	clear: both;
 }
+/* Smartphone LandScape */
+@media screen and (max-width: 576px){
+    html,body{
+        background-color: red;
+    }
 
+}
+/* Tablet Portrait */
+@media screen and (max-width: 768px){
+    html,body{
+        background-color: blue;
+    }
+
+}
+
+/* Table Landscape */
+@media screen and (max-width: 992px){
+    html,body{
+        background-color: orange;
+    }
+
+}
