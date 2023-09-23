@@ -10,11 +10,23 @@
 </head>
 <body>
     <!-- Cabeçalho -->
-    <header id="cabecalho">
-        <div class="Container">
-            <h1>Cabeçalho</h1>
-
-        </div><!-- Container -->
+    <header id="inicio">
+        <div class="Container Flex">
+            <div id="logo">
+                <img src="src/imagens/logo.png" alt="hal 9000">
+            </div>
+            <nav>
+                <input type="checkbox" id="check">
+                <label for="check">&#x2630;</label>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#conteudo">Conteúdo</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="clear"></div><!-- clear -->
     </header>
     <!-- Destaque -->
     <main id="destaque">
@@ -58,5 +70,6 @@
             
         </div><!-- Container -->
     </footer>
+    <a href="#inicio" id="topo"><img src="src/imagens/topo.png" alt="topo do site"></a>
 </body>
 </html>
