@@ -1,6 +1,5 @@
 ![Static Badge](https://img.shields.io/badge/license-MIT-green)
 ![Static Badge](https://img.shields.io/badge/w3c-validated-green)
-![Static Badge](https://img.shields.io/badge/website-up-green)
 
 
 # Html5 e CSS3
