@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+    <!-- <script src="src/Jquery/code.jquery.com_jquery-3.7.1.min.js"></script> -->
+    <link rel="stylesheet" href="src/css/style.css">
+    <script src="src/Jquery/jquery.js"></script>
+    <script src="src/Jquery/resumo.js"></script>
+    <script>
+        
+        // $(document).ready(function () {
+        //     alert('Dom carregado');
+        // });
+
+        $(document).ready(function () {
+            /*
+            $('h1').css("color", "#f66");
+            $('h1').hide();
+            $('h1').delay('1000');
+            $('h1').fadeIn("slow");
+            $('h1').text('Curso Jquery PontoCanal');
+            */
+            // $('h1').css("color", "#f66").hide().delay('1000').fadeIn("slow").text('Curso Jquery PontoCanal');
+
+            $('h1').css("color", "#f66")
+                .hide()
+                .delay('1000')
+                .fadeIn("slow")
+                .text('Curso Jquery PontoCanal')
+                .click(function () {
+                    $('body').css("background", "#C30")
+                    $('h1').css("color", "#fff");
+                });
+
+            $('a').css({ color: 'red', display: 'block' });
+            $('.link2').css("color", "green");
+            $('#link3').css("color", "#000");
+            // $('*').css("padding", "10px");
+            $('h1,#link3').css("border-bottom", "solid 3px blue");
+        });
+
+        $(document).ready(function () {
+            $('h2').css('margin', '0');
+            $('p').css({ margin: '0', color: 'blue' });
+            // $('.div').css({ 'margin-bottom': '20px', background: '#ccc' });
+            $('.div1').css({ 'margin-bottom': '20px', background: '#ccc' });
+            // Filhas
+            $('.div1 span').hide().delay('1000').fadeIn(1000).css({ color: 'green', 'font-size': '15px' });
+            $('.div h2').hide().css({ 'font-size': '50px', color: 'red' }).fadeIn(800);
+            // Filhas diretas do Elemento
+            $('.div1 > span').css({ color: 'violet' });
+            // Primeiro Elemento Após o Selecionado
+            $('.p1 + p').css({ 'font-size': '25px' });
+            // Atacando todos elementos após o selecionado
+            $('.p1 ~ p').css({ color: 'black' });
+        });
+
+        // Não funciona mais este metodo
+        // $(window).load(function(){
+        //     alert('Dom carregado2');
+        // });
+
+
+        // $(window).on('load', function () {
+        //     alert("Window Loaded.");
+        // });
+
+    </script>
+    <title>Aula 1</title>
+</head>
+
+<body>
+    <div class="text">Ola mundo</div>
+    <div class="imagem">
+        <img src="https://cdn.bhdw.net/im/sword-art-online-anime-girl-character-landscape-pose-wallpaper-112668_w635.webp" alt="">
+    </div><!-- imagem -->
+
+    <div class="linkteste">
+        <h1>Inscreva-se</h1>
+        <a href="#">Link 1</a>
+        <a href="#" class="link2">Link 2</a>
+        <a href="#" id="link3">Link 3</a>
+    </div><!-- linkteste -->
+
+    <div class="div1">
+        <h2>H2 filho de DIV1</h2>
+        <p>P filho de DIV1 <span>SPAN Filho de P</span></p>
+        <span>Span Filho DIV1</span>
+    </div>
+    <h2>H2 fora de Div1</h2>
+    <p class="p1">P1 fora de Div1</p>
+    <p>P2 fora de Div1</p>
+    <p>P3 fora de Div1</p>
+    <div class="semimagens">
+        <div class="h1text">
+            <h1>texto</h1>
+        </div><!-- h1text -->
+        <div class="blococomimagens">
+            <div class="comimagem">
+                <h2>Com imagens</h2>
+                <img src="src/image/vista.jpeg" height="250px" width="250px" alt="vista">
+            </div><!-- comimagem -->
+            <div class="semimagem">
+                <h2>Sem imagens</h2>
+                <img src="src/image/vista1.jpeg" height="250px" width="250px" alt="imagemerror">
+            </div><!-- semimagem -->
+        </div><!-- blococomimagens -->
+    </div><!-- semimagens -->
+    <!-- imagem do tamanho da tela -->
+    <div class="screenimage">
+        <img src="src/image/wonde-day-anime-background-for-intro-16.jpg" alt="full imagem">
+    </div><!-- screenimage -->
+    <div class="aulacommouse container">
+        <h2>Aula com Mouse</h2>
+        <div class="exp1">Aguardando Ação</div><!-- exp1 -->
+        <div class="exp2 bloco">1 clique</div><!-- exp2 -->
+        <div class="exp3 bloco">2 clique</div><!-- exp3 -->
+        <div class="exp4 bloco">
+            <input type="text" >
+        </div><!-- exp4 -->
+        <div class="exp5 bloco">Passe o mouse</div><!-- exp5 -->
+        <div class="exp6 bloco">Clique e solte</div><!-- exp6 -->
+        <div class="exp7 bloco">Entra e sai</div><!-- exp7 -->
+        <div class="exp8 bloco">Entra e <span>Over</span> </div><!-- exp8 -->
+        <div class="exp9 bloco">Mova o mouse no elemento </div><!-- exp9 -->
+    </div>
+    <div class="aulacomteclado container">
+        <h2>Aula com Teclado</h2>
+        <div class="exp1_1">Aguardando Ação</div><!-- exp1 -->
+        <div class="formulario">
+            <form action="#">
+                <label>
+                    <input type="text" class="place ev1" title="Digite seu nome" name="nome">
+                </label>
+                <label>
+                    <input type="text" class="place ev2" title="Digite seu email" name="email">
+                </label>
+                <label>
+                    <input type="text" class="place" title="Digite sua cidade" name="cidade">
+                </label>
+                <label for="">
+                    <textarea rows="3" class="place key ev3" title="Digite seu comentario" name="comentario"></textarea><!-- # -->
+                </label>
+                <label for="">
+                    <button type="button" class="selBot" >Selecionar</button>
+                </label>
+                <label for="">
+                    <button type="submit">Enviar</button>
+                </label>
+            </form>
+        </div><!-- formulario -->
+    </div>
+    <div class="hideshow container">
+        <h2>hideshow</h2>
+        <div class="exp11">Aguardando Ação</div><!-- exp1 -->
+        <div class="exp12 bloco">HIDE</div><!-- exp2 -->
+        <div class="exp13 bloco">SHOW</div><!-- exp3 -->
+        <div class="exp14 bloco">TOGGLE</div><!-- exp5 -->
+        <div class="bloco">
+            <input type="text" class="exp15" >
+        </div><!-- exp4 -->
+    </div>
+    <div class="hideshow container">
+        <h2>Efeitos de Desvanecimento</h2>
+        <div class="exp111">Aguardando Ação</div><!-- exp1 -->
+        <label class="bloco">
+            <button class="exp112" type="submit">Enviar</button>
+        </label>
+        <label class="bloco">
+            <button class="exp113" type="submit">Enviar</button>
+        </label>
+    </div>
+</body>
+
+</html>

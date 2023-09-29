@@ -1,0 +1,66 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+.container {
+	max-width: 1280px;
+	margin: 10px auto;
+	text-align: center;
+	border-top: 5px solid black;
+}
+
+.clear {
+	clear: both;
+}
+
+.blococomimagens {
+	display: flex;
+	justify-content: space-between; /* Isso distribui o espaço uniformemente entre as imagens */
+}
+
+.comimagem,
+.semimagem {
+	flex: 1; /* Isso faz com que as imagens ocupem o espaço disponível igualmente */
+	text-align: center; /* Isso centraliza o conteúdo*/
+}
+
+.exp1,.exp1_1, .exp11,.exp111 {
+	width: 480px;
+	padding: 20px;
+	background: #1e90ff;
+	margin: 5px auto;
+	text-align: center;
+	color: #fff;
+	border: 5px solid black;
+}
+
+
+.bloco {
+	width: 480px;
+	padding: 5px;
+	background: #000;
+	margin: 5px auto;
+	text-align: center;
+	color: #fff;
+	border: 5px solid #ccc;
+}
+
+
+label {
+	display: block;
+	padding: 10px;
+	background: #f8f8ff;
+}
+
+
+input,textarea {
+	padding: 5px;
+	width: 450px;
+}
