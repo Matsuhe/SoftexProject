@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Usuario {
     @jakarta.persistence.Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
+    private Integer id;
     private String name;
     @Column(unique = true)
     private String email;
