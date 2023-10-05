@@ -1,14 +1,14 @@
 package br.com.dicasdeumdev.api.services.impl;
 
-import br.com.dicasdeumdev.api.services.exceptions.ObjectNotFoundException;
 import br.com.dicasdeumdev.api.domain.Usuario;
 import br.com.dicasdeumdev.api.domain.dto.UserDTO;
 import br.com.dicasdeumdev.api.repositories.UserRepository;
+import br.com.dicasdeumdev.api.services.exceptions.DataIntegratyViolationException;
+import br.com.dicasdeumdev.api.services.exceptions.ObjectNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,7 +18,7 @@ import java.util.Optional;
 
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
 
 
@@ -48,7 +48,7 @@ class UserServiceImplTest {
 
     @Test
     void findById() {
-        when(repository.findById(Mockito.any())).thenReturn(optionalUser);
+        when(repository.findById(any())).thenReturn(optionalUser);
         Usuario response = service.findById(ID);
         assertNotNull(response);
         assertEquals(Usuario.class, response.getClass());
@@ -88,6 +88,29 @@ class UserServiceImplTest {
 
     @Test
     void create() {
+        when(repository.save(any())).thenReturn(user);
+
+        Usuario response = service.create(userDTO);
+
+        assertNotNull(response);
+        assertEquals(Usuario.class, response.getClass());
+        assertEquals(ID, response.getId());
+        assertEquals(name, response.getName());
+        assertEquals(email, response.getEmail());
+        assertEquals(password, response.getPassword());
+    }
+
+    @Test
+    void whenCreateThenReturnAnDataIntegrityViolationException() {
+        when(repository.findByEmail(anyString())).thenReturn(optionalUser);
+
+        try{
+            optionalUser.get().setId(2);
+            service.create(userDTO);
+        } catch (Exception ex) {
+            assertEquals(DataIntegratyViolationException.class, ex.getClass());
+            assertEquals("Email ja cadastrado no sistema", ex.getMessage());
+        }
     }
 
     @Test
