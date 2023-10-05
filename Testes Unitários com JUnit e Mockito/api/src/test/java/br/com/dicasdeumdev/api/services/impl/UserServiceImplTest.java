@@ -3,6 +3,7 @@ package br.com.dicasdeumdev.api.services.impl;
 import br.com.dicasdeumdev.api.domain.Usuario;
 import br.com.dicasdeumdev.api.domain.dto.UserDTO;
 import br.com.dicasdeumdev.api.repositories.UserRepository;
+import org.hibernate.ObjectNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -16,6 +17,7 @@ import java.util.Optional;
 
 import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -24,6 +26,7 @@ class UserServiceImplTest {
     public static final String name = "Matsuhe";
     public static final String email = "matsuhe@hotmail.com";
     public static final String password = "123";
+    private static final String OBJETO_NAO_ENCONTRADO = "Objeto não encontrado";
     @InjectMocks
     private UserServiceImpl service;
     @Mock
@@ -41,13 +44,26 @@ class UserServiceImplTest {
 
     @Test
     void findById() {
-        when(repository.findById(Mockito.any())).thenReturn(optionalUser);
+        w hen(repository.findById(Mockito.any())).thenReturn(optionalUser);
         Usuario response = service.findById(ID);
         assertNotNull(response);
         assertEquals(Usuario.class, response.getClass());
         assertEquals(ID, response.getId());
         assertEquals(name, response.getName());
         assertEquals(email, response.getEmail());
+    }
+
+    @Test
+    void whenFindByIdThenReturnAnObjectNotFoundException() {
+
+        when(repository.findById(anyInt())).thenThrow(new ObjectNotFoundException(OBJETO_NAO_ENCONTRADO));
+
+        try{
+            service.findById(ID);
+        } catch (Exception ex) {
+            assertEquals(ObjectNotFoundException.class, ex.getClass());
+            assertEquals(OBJETO_NAO_ENCONTRADO, ex.getMessage());
+        }
     }
 
     @Test
